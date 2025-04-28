@@ -2,6 +2,8 @@ import sqlite3
 import os
 import logging
 
+
+
 # Configuración del registro
 logging.basicConfig(level=logging.INFO)
 
@@ -23,6 +25,8 @@ class ConexionDB:
         except sqlite3.Error as e:
             logging.error(f"Error al conectar a la base de datos: {e}")
             raise
+
+        self.cursor.execute("PRAGMA foreign_keys = ON;")
 
     def ejecutar(self, sql, params=()):
         """Ejecuta una consulta SQL con parámetros"""
@@ -52,3 +56,8 @@ class ConexionDB:
         if self.conexion:
             self.conexion.close()
             logging.info("Conexión cerrada.")
+
+            # Uso de la clase ConexionDB
+
+
+# Cerrar la conexión

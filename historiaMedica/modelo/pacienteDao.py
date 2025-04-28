@@ -3,6 +3,7 @@ from tkinter import messagebox
 import sqlite3
 
 
+
 def verificarRUTExistente(RUTpaciente):
     conexion = ConexionDB()
     sql = "SELECT COUNT(*) FROM Persona WHERE RUTpaciente = ?"
@@ -230,4 +231,6 @@ def eliminarPaciente(RUTpaciente):
 class Persona:
     def __init__(self, datos):
         self.__dict__.update(datos)
+
+        
 
